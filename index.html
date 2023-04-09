@@ -10,6 +10,28 @@
 <script type="text/javascript">
   function onTelegramAuth(user) {
     alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+Telegram.login({
+  widget: "telegramLoginWidget",
+  onSuccess: function (user) {
+    var token = user.auth_date + ":" + user.id + ":" + user.hash;
+    // Далее выполните сохранение данных в базу данных SQLite
+    // Например, используя AJAX запрос к серверу
+    $.ajax({
+      type: "POST",
+      url: "/save_user_data",
+      data: {token: token},
+      success: function(response){
+        console.log(response);
+      },
+      error: function(error){
+        console.log(error);
+      }
+    });
+  },
+  onError: function (error) {
+    console.log(error);
+  }
+});
   }
 </script>
 </body>
