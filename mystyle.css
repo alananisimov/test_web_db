@@ -3,6 +3,9 @@
   font-family: 'Montserrat', sans-serif;
   max-width: 800px;
   margin: 0 auto;
+  border: 2px solid orange;
+  border-radius: 40px;
+  padding: 10px;
 }
 
 .news-item {
@@ -14,7 +17,7 @@
   margin-top: 0;
   margin-bottom: 10px;
   font-weight: bold;
-  color: #f64c72;
+  color: orange
 }
 
 .item-date {
